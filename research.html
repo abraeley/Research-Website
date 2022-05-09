@@ -1,0 +1,67 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="style2.css">
+    <script src="main.js" defer></script>
+    <title>Alan Braeley</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="menu-btn">
+        <div class="menu-btn__lines"></div>
+      </div>
+      <ul class="menu-items">
+        <li><a href="index.html" class="menu-item">Home</a></li>
+        <li><a href="about.html" class="menu-item">About</a></li>
+				<li><a href="research.html" class="menu-item">Research</a></li>
+        <li><a href="dataExplorer.html" class="menu-item">Radar Data Sample</a></li>
+				<li><a href="cv.html" class="menu-item">CV</a></li>
+        <li><a href="software.html" class="menu-item">Software</a></li>
+      </ul>
+    </header>
+
+		<div id="background">
+
+		</div>
+      <div id="page">
+        <div>
+          <img class="content-image" src="images/npldUSGS.jpg"/>
+        </div>
+        <div id="researchExplanation">
+            I study the north polar layered deposits of Mars, a region at the North Pole of the red planet that is thought to grow as a function of the obliquity (i.e. the tilt) of the planet's orbit around the Sun.
+        </div>
+      </div>
+	</body>
+</html>
+<style>
+.content-image{
+  height:85%;
+  position: absolute;
+  left: 55%;
+  top: 7%;
+  z-index: 10;
+}
+ #researchExplanation {
+   z-index: 11;
+   height: 85%;
+   right: 55%;
+   top: 10%;
+   width: 50%;
+ }
+ #background {
+   content: "";
+   background: url('images/DipperFarm.jpg');
+   background-size: cover;
+   background-position: center bottom;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   opacity: 0.45;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   position: absolute;
+   z-index: 2;
+ }
+</style>

@@ -1,0 +1,388 @@
+/* globals */
+* {
+  margin: 0;
+  padding: 0;
+
+}
+
+BODY {
+  background-color: #000000;
+}
+a:link {
+  font-family: Georgia;
+  text-decoration: none;
+}
+a:hover {
+  animation-name: color;
+  animation-duration: 150ms;
+  animation-fill-mode: forwards;
+}
+@keyframes color {
+  100% {
+    color: #8A8FF1;
+    text-decoration: underline;
+  }
+}
+
+/* header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  z-index: 1;
+  backdrop-filter: blur(5px);
+}
+
+.header a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+.menu-items {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.menu-items li a {
+  font-size: 1rem;
+  padding: 0.5em 1em;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.menu-items li a:hover {
+  background-color: #ccc7d3;
+}
+
+/* nav menu button */
+.menu-btn {
+  position: relative;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  z-index: 3;
+}
+.section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+}
+
+.section h1 {
+  font-weight: 700;
+  line-height: 3vw;
+  color: #FFFFFF;
+  font-size: 3vw;
+  font-family: arial;
+  text-align: left;
+  padding: 10px;
+  transform: translate(-50%, -50%);
+}
+
+.section p {
+  padding-right: 1rem;
+}
+
+/* custom shape for hero section */
+.custom-shape-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.custom-shape-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.custom-shape-divider .shape-fill {
+  fill: #ffffff;
+}
+
+/* another section */
+.another-col {
+  width: clamp(300px, 50vw, 600px);
+}
+
+/* media query for tablet devices */
+@media (max-width: 1023px) {
+  .custom-shape-divider svg {
+    width: calc(200% + 1.3px);
+    height: 150px;
+  }
+  .hero-col {
+    max-width: 100%;
+    width: clamp(300px, 50vw, 600px);
+    padding: 0;
+  }
+  .hero-img {
+    display: none;
+  }
+}
+
+/* media query for mobile devices */
+@media (max-width: 767px) {
+  .custom-shape-divider svg {
+    width: calc(250% + 1.3px);
+    height: 150px;
+  }
+  .header a {
+    font-size: 1rem;
+  }
+  .menu-btn {
+    display: flex;
+  }
+  .menu-items {
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100vh;
+    transform: translateX(100vw);
+    background-color: #5a4d70;
+    transition: transform 0.3s ease-in-out;
+  }
+  .menu-items.open {
+    transform: translateX(0);
+  }
+  .menu-items li {
+    width: 100vw;
+    height: 100%;
+  }
+  .menu-items li a {
+    color: #ffffff;
+    font-size: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  .menu-items li a:hover {
+    color: #111111;
+  }
+}
+#page{
+  width:100%;
+  height:100%;
+  position:absolute;
+}
+/* Our normalize css */
+*{
+  margin:0;
+  box-sizing: border-box;
+}
+
+/* Our wrapper */
+.wrapper{
+  width: 900px;
+  height: 600px;
+  position: absolute;
+  z-index: 10;
+  left:50%;
+  top:50%;
+  transform:translate3d(-50%,-50%,0);
+  overflow:hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+/* Our image information */
+.before,
+.after {
+  width:100%;
+  height:100%;
+  background-repeat:no-repeat;
+  background-color: white;
+  background-position: center;
+  position: absolute;
+  top:0;
+  left:0;
+  pointer-events:none;
+  overflow: hidden;
+}
+
+.content-image{
+  height:100%;
+}
+
+.after{
+  width:125px;
+}
+
+.scroller{
+  width: 50px;
+  height:50px;
+  position: absolute;
+  left:100px;
+  top:50%;
+  transform:translateY(-50%);
+  border-radius:50%;
+  background-color: transparent;
+  opacity:0.9;
+  pointer-events:auto;
+  cursor: pointer;
+}
+
+.scroller:hover{
+  opacity:1;
+}
+
+.scrolling{
+  pointer-events:none;
+  opacity:1;
+  // z-index: 1;
+}
+
+.scroller__thumb{
+  width:100%;
+  height:100%;
+  padding:5px;
+}
+
+.scroller:before,
+.scroller:after{
+  content:" ";
+  display: block;
+  width: 7px;
+  height: 9999px;
+  position: absolute;
+  left: 50%;
+  margin-left: -3.5px;
+  z-index: 30;
+  transition:0.1s;
+}
+.scroller:before{
+  top:100%;
+}
+.scroller:after{
+  bottom:100%;
+}
+
+/* If you want to cahnge the colors, make sure you change the fill in the svgs to match */
+.scroller{
+  border: 5px solid #fff;
+}
+.scroller:before,
+.scroller:after{
+  background: #fff;
+}
+
+div::after {
+  content: "";
+  background: url('images/DipperFarm.jpg');
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.45;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+.stars {
+  background-color: white;
+  height: 1px;
+  width: 1px;
+  border-radius: 75%;
+  animation-iteration-count: infinite;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.star-1 {
+  margin-top: 9.01%;
+  margin-left: 53.2%;
+  animation-duration: 1s;
+  animation-name: twinkle;
+}
+
+  .star-2 {
+  margin-top: 25%;
+  margin-left: 25%;
+  animation-duration: 0.9s;
+  animation-name: twinkle;
+  }
+
+  .star-3 {
+  margin-top: 10.75%;
+  margin-left: 67.3%;
+  animation-duration: 1.1s;
+  animation-name: twinkle;
+  }
+
+  .star-4 {
+  margin-top: 5%;
+  margin-left: 15%;
+  animation-duration: 1.3s;
+  animation-name: twinkle;
+  }
+
+  .star-5 {
+  margin-top: 15%;
+  margin-left: 85%;
+  animation-duration: 1.5s;
+  animation-name: twinkle;
+  }
+
+  .star-6 {
+  margin-top: 35%;
+  margin-left: 35%;
+  animation-duration: 1.5s;
+  animation-name: twinkle;
+  }
+  .star-7 {
+  margin-top: 30%;
+  margin-left: 68%;
+  animation-duration: 1.2s;
+  animation-name: twinkle;
+  }
+  .star-8 {
+  margin-top: 28%;
+  margin-left: 85%;
+  animation-duration: 1.1s;
+  animation-name: twinkle;
+  }
+  .star-9 {
+  margin-top: 32%;
+  margin-left: 60%;
+  animation-duration: 1.5s;
+  animation-name: twinkle;
+  }
+  .star-10 {
+  margin-top: 16%;
+  margin-left: 28%;
+  animation-duration: 1.5s;
+  animation-name: twinkle;
+  }
+
+  @keyframes twinkle {
+  20% {
+    transform: scale(4.25);
+    opacity: 1;
+  }
+  }
